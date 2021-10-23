@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href={% style.css% }>  
+</head>
+<body>
+  <section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex align-items-center justify-content-center h-100">
+    <center><h2>E-commerce</h2></center>
+        <div class="col-md-8 col-lg-7 col-xl-6">
+          <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image">
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+          <h4>Login</h4>
+          <form action=" " method="post">
+          {% csrf_token %}
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="form1Example13">Email address</label>
+              <input type="email" id="email" class="form-control form-control-lg" name='email'/>
+              <span id='msg_email'></span>
+            </div>
+  
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <label class="form-label" for="form1Example23">Password</label>
+              <input type="password" id="password" class="form-control form-control-lg"  name='password'/>
+              <span id='msg_password'></span>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+          </form><br>
+
+          {%for message in messages%}
+          <p> {{message}} </p> <br>
+          {%endfor%}
+          <p>If you are an admin? <a href={% url 'admin_login' %}> Login</a></p>
+          <p>Don't have account? <a href={% url 'signup' %}> signup</a></p> 
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+   <script>
+
+    $(document).ready( ()=>{
+      var email;
+      var password;
+
+      $('#email').mouseenter( ()=>{
+        email = $('#email').val();
+        if (email == ''){
+          $('#msg_email').html('Enter email');
+        }
+      } )
+
+      $('#email').keyup( ()=>{
+        email = $('#email').val();
+        if (email == ''){
+          $('#msg_email').html('Enter email');
+        }
+        else{
+          $('#msg_email').html(' ');
+        }
+      } );
+
+      $('#password').mouseenter( ()=>{
+        password = $('#password').val();
+        if (password == ''){
+          $('#msg_password').html('Enter password');
+        }
+      } )
+
+      $('#password').keyup( ()=>{
+        password = $('#password').val();
+        if(password == ''){
+          $('#msg_password').html('Enter password');
+        }
+        else{
+          $('#msg_password').html(' ');
+        }
+      } );
+    } );
+
+   </script>
+
+</body>
+</html>
