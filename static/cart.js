@@ -20,7 +20,6 @@ const updater =(id, btn)=>{
         'csrfmiddlewaretoken' : $('#'+id+'csrf').val() , //'{{ csrf_token }}',
         'id' : id,
     }
-    console.log(data)
     $.ajax({
         url : 'updater',
         method : 'post',
