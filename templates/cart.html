@@ -33,7 +33,7 @@
                     </div>
                     <form action="remove_cart" method="post">
                     {%csrf_token%}
-                      <input id="{{item.id}}csrf" value={{ csrf_token }} hidden>
+                      {% comment %} <input id="{{item.id}}csrf" value={{ csrf_token }} hidden> {% endcomment %}
                 </div>
                   <button type="submit" class="p-3 bg-danger text-center text-white mt-3 cursor btn" value="{{item.item}}" name='remove' id={{item.id}}>REMOVE</button>
                   </form>
@@ -50,7 +50,7 @@
     <form>
                     {%csrf_token%}
 
-      <input id="csrf" value={{ csrf_token }} hidden>
+      {% comment %} <input id="csrf" value={{ csrf_token }} hidden> {% endcomment %}
         <div class="form-row">
           <div class="form-group col-md-2">
             <label for="inputEmail4">Name</label>
