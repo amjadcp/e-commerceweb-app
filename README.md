@@ -138,7 +138,7 @@ Project Link: [https://github.com/amjadcp/e-commerceweb-app](https://github.com/
 
 <!-- CONTRIBUTERS -->
 ## Contributers
-* [Amjad CP](https://github.com/amjadcp)   - Backend
+* [Amjad CP](https://github.com/amjadcp)
 
 ## Phase of program
 1. Frontend creation
